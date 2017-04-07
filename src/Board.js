@@ -79,19 +79,29 @@
     // test if a specific row on this board contains a conflict
     hasRowConflictAt: function(rowIndex) {
       // if any has two or more '1' then there is a conflict. 
-      var matrix = this.rows();
+      var row = this.get(rowIndex);
       var count = 0; 
+
+      for (var i = 0; i < row.length; i++) {
+        count += row[i]
+      }
+
+      return count > 1; 
+
+
+      // var matrix = this.rows();
+      // var count = 0; 
     
-      for (var i = 0; i < matrix[rowIndex].length; i++) {
-        if (matrix[rowIndex][i] === 1) {
-          count++;
-        }
-      }
+      // for (var i = 0; i < matrix[rowIndex].length; i++) {
+      //   if (matrix[rowIndex][i] === 1) {
+      //     count++;
+      //   }
+      // }
       
-      if (count > 1) {
-        return true;  // yes, there is a conflict 
-      }
-      return false;
+      // if (count > 1) {
+      //   return true;  // yes, there is a conflict 
+      // }
+      // return false;
 
     },
 
